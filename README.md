@@ -9,13 +9,12 @@ This is an extension to the MusicBot made by SexualRhinoceros (https://github.co
 <li> Spotify Account </li>
 </ul>
 <h2> How do I add Spotify To My Bot</h2> </br>
-<ul>
 <h3> Notes </h3>
-You will need to create a developer app on Spotify to add the Spotify feature to your Bot.</br>
-To do this visit https://developer.spotify.com/my-applications/#!/ and follow instructions.</br>
-Keep a not of your Application Client Id and Secret ID. </br>
-More Details on creating the app can be found on https://spotipy.readthedocs.io/en/latest/#authorized-requests
-
+<p>You will need to create a developer app on Spotify to add the Spotify feature to your Bot.<br>
+To do this visit https://developer.spotify.com/my-applications/#!/ and follow instructions.<br>
+Keep a not of your Application Client Id and Secret ID. <br>
+More Details on creating the app can be found on https://spotipy.readthedocs.io/en/latest/#authorized-requests </p>
+<ul>
 <li><a href ="https://github.com/plamere/spotipy">Install Spotipy </a> either using pip install spotipy or as specified by Spotipy. </br> </li>
 <li>Fill in Credentials in bot.py (Its at the bottom of the page) and then replace it. </li>
 <li>Add 'spotify' to permissions.ini file (As seen on example_permissions.ini) </li>
