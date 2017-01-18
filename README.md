@@ -29,4 +29,5 @@ Paste it into the shell (This is part of Spotipy so for any refrence visit https
 In discord use {pre-fix}spotify spotify:Uri:Format:like:This <br>
 This works by getting a spotify URI then using Spotify API to get all the tracks inside the playlist. Then playing them using the built-in play method.
 
-
+<h1> Disclaimer </h1>
+This DOES NOT stream from Spotify. Only gets Track Names and then uses youtube to get the music
