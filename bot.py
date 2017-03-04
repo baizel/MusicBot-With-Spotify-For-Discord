@@ -2024,20 +2024,39 @@ class MusicBot(discord.Client):
         token = util.prompt_for_user_token("USERNAME", scope, "CLIENT_ID",
                                            "CLIENT_SECRET", "REDIRECT_URI")
         sp = spotipy.Spotify(auth=token)
-        # TODO add checks for URI format
-        #URI must be in format spotify:user:spotify:playlist:someplaylistid
-        username = URI.split(":")[2]
-        playlist = URI.split(":")[4]
-        res = sp.user_playlist_tracks(username, playlist)
-        # TODO checks to see if it fails
-        for items in res["items"]:
-            song = items["track"]["name"]
-            artist = items["track"]["artists"][0]["name"]
+        #DISPUTES IS JESUS ;) added checks for URI format
+        #URI must be in format spotify:user:USERNAME:playlist:PLAYLISTID
+        if URI.split(":")[1] == "user":
+            username = URI.split(":")[2]
+            playlist = URI.split(":")[4]
+            res = sp.user_playlist_tracks(username, playlist)
+            for items in res["items"]:
+                song = items["track"]["name"]
+                artist = items["track"]["artists"][0]["name"]
+                songToPlay = str(song) + " by " + str(artist)
+                await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
+        #URI must be in format spotify:track:TRACKID
+        elif URI.split(":")[1] == "track":
+            track = URI.split(":")[2]
+            res = sp.track(track)
+            song = res['name']
+            artist = res['artists'][0]['name']
             songToPlay = str(song) + " by " + str(artist)
-            #print (songToPlay)
             await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
+        #URI must be in format spotify:album:ALBUMID
+        elif URI.split(":")[1] == "album":
+            album = URI.split(":")[2]
+            res = sp.album_tracks(album)
+            for items in res["items"]:
+                song = items["name"]
+                artist = items["artists"][0]["name"]
+                songToPlay = str(song) + " by " + str(artist)
+                await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
+                
+        # TODO checks to see if it fails
+        
         #TODO Check if everything was added to queue
-        return Response("Songs Added. Maybe")
+        return Response(songToPlay+" Added")
 
 
 
@@ -2046,4 +2065,3 @@ if __name__ == '__main__':
     bot = MusicBot()
 
     bot.run()
-    
