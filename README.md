@@ -12,7 +12,7 @@ This is an extension to the MusicBot made by SexualRhinoceros (https://github.co
 <h3> Notes </h3>
 <p>You will need to create a developer app on Spotify to add the Spotify feature to your Bot.<br>
 To do this visit https://developer.spotify.com/my-applications/#!/ and follow instructions.<br>
-Keep a not of your Application Client Id and Secret ID. <br>
+Keep a note of your Application Client Id and Secret ID. <br>
 More Details on creating the app can be found on https://spotipy.readthedocs.io/en/latest/#authorized-requests </p>
 <ul>
 <li><a href ="https://github.com/plamere/spotipy">Install Spotipy </a> either using pip install spotipy or as specified by Spotipy. </br> </li>
