@@ -2033,7 +2033,7 @@ class MusicBot(discord.Client):
             for items in res["items"]:
                 song = items["track"]["name"]
                 artist = items["track"]["artists"][0]["name"]
-                songToPlay = str(song) + " by " + str(artist)
+                songToPlay = str(song) + " by " + str(artist) + " Lyrics"
                 await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
         #URI must be in format spotify:track:TRACKID
         elif URI.split(":")[1] == "track":
@@ -2041,7 +2041,7 @@ class MusicBot(discord.Client):
             res = sp.track(track)
             song = res['name']
             artist = res['artists'][0]['name']
-            songToPlay = str(song) + " by " + str(artist)
+            songToPlay = str(song) + " by " + str(artist) + " Lyrics"
             await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
         #URI must be in format spotify:album:ALBUMID
         elif URI.split(":")[1] == "album":
@@ -2050,7 +2050,7 @@ class MusicBot(discord.Client):
             for items in res["items"]:
                 song = items["name"]
                 artist = items["artists"][0]["name"]
-                songToPlay = str(song) + " by " + str(artist)
+                songToPlay = str(song) + " by " + str(artist) + " Lyrics"
                 await self.cmd_play(player, channel, author, permissions, leftover_args, songToPlay)
                 
         # TODO checks to see if it fails
